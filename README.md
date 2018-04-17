@@ -1,4 +1,4 @@
-# vaadin-osgi-servlet-tracker
+# vaadin-servlet-publisher
 
 Forked from https://github.com/vaadin/framework/tree/master/osgi-integration this contains some fixes and additions to it and will be published as a separate addon under a different name.
 
