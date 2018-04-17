@@ -17,7 +17,21 @@
     <bnd.version>3.3.0</bnd.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+
+    <Implementation-Version>${project.version}</Implementation-Version>
+    <!-- Must not change this because of the Directory -->
+    <Implementation-Title>${project.name}</Implementation-Title>
+    <Vaadin-License-Title>Apache License 2.0</Vaadin-License-Title>
+    <Vaadin-Addon>${project.artifactId}-${project.version}.jar</Vaadin-Addon>
   </properties>
+
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
   <dependencies>
 
@@ -78,9 +92,9 @@
         </executions>
       </plugin>
       <!-- This is required to copy the bnd generated MANIFEST.MF to the jar.
-                https://issues.apache.org/jira/browse/MJAR-193 is supposed to address this
-                issue, but at the time of writing this the configuration is necessary. Check
-                https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin -->
+				https://issues.apache.org/jira/browse/MJAR-193 is supposed to address this
+				issue, but at the time of writing this the configuration is necessary. Check
+				https://github.com/bndtools/bnd/tree/master/maven/bnd-maven-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -93,6 +107,52 @@
             </manifest>
           </archive>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadoc</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <appendAssemblyId>false</appendAssemblyId>
+          <descriptors>
+            <descriptor>assembly/assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
 
