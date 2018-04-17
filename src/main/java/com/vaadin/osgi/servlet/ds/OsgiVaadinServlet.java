@@ -47,6 +47,7 @@ public class OsgiVaadinServlet extends VaadinServlet {
     protected VaadinServletService createServletService(DeploymentConfiguration deploymentConfiguration)
             throws ServiceException {
         VaadinServletService service = super.createServletService(deploymentConfiguration);
+        service.setClassLoader(getClass().getClassLoader());
         service.addSessionInitListener(event -> {
             VaadinSession session = event.getSession();
             session.addUIProvider(osgiUIProvider);
