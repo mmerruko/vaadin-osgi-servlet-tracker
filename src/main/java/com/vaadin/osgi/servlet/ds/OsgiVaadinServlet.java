@@ -34,7 +34,7 @@ import com.vaadin.ui.UI;
  * 
  * If you need to use a different {@link UIProvider} to conditionally provide a
  * different {@link UI} extend this servlet and override
- * {@link #createServletService(DeploymentConfiguration))} to add your
+ * {@link #createServletService(DeploymentConfiguration)} to add your
  * customized provider on session initialization.
  * 
  */
