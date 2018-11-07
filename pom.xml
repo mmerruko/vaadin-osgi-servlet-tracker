@@ -2,14 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.vaadin</groupId>
   <artifactId>osgi-vaadin-servlet-publisher</artifactId>
-  <version>0.9.0</version>
+  <version>8.6.0</version>
   <packaging>jar</packaging>
   <url>https://vaadin.com/</url>
   <description>Vaadin OSGi Servlet Publisher</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <vaadin.version>8.4.0.beta1</vaadin.version>
+    <vaadin.version>8.6.0</vaadin.version>
     <osgi.execution.environment>JavaSE-1.8</osgi.execution.environment>
     <osgi.version>6.0.0</osgi.version>
     <osgi.annotation.version>6.0.1</osgi.annotation.version>
@@ -79,6 +79,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
       </plugin>
       <plugin>
         <groupId>biz.aQute.bnd</groupId>
@@ -99,6 +100,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>3.1.0</version>
         <configuration>
           <archive>
             <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
